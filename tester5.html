@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Population Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Japan's Increasing 65+ Population</h2>
+  <canvas id="populationChart" width="600" height="400"></canvas>
+
+  <!-- Source Note -->
+  <p style="font-size: 0.9em; color: #555; margin-top: 10px;">
+    Source: Statistics Bureau of Japan, Population Census Data 
+  </p>
+
+  <script>
+    const ctx = document.getElementById('populationChart').getContext('2d');
+    const populationChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['1980', '1990', '2000', '2010', '2020'],
+        datasets: [{
+          label: 'Population (in millions)',
+          data: [10592917, 15013983, 22123742, 29581642, 36512376],
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Population (in millions)'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
